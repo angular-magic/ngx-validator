@@ -1,27 +1,47 @@
-# NgxValidator
+# ngx-validator
+This module contains validator component which automatically show message depending by control's validations.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+[![NPM](https://nodei.co/npm/@angular-magic/ngx-validator.png)](https://nodei.co/npm/@angular-magic/ngx-validator/)
 
-## Development server
+# Installation
+#### npm
+```
+npm install @angular-magic/ngx-validator
+```
+#### yarn
+```
+yarn add  @angular-magic/ngx-validator
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Usage
+1. Add a module into your application (as a rule app.module.ts)
 
-## Code scaffolding
+```ts
+import { NgxValidatorModule } from "@angular-magic/ngx-validator";
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@NgModule({
+  imports: [NgxValidatorModule, BrowserModule, ReactiveFormsModule, ...],
+  ...
+})
+```
+2. Add component under your input or controllable UI component
+```
+<input type="text" [formControl]="myFormControl" />
+<ngx-validator [control]="myFormControl" customName="Name"></ngx-validator>
+```
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Options
+Validator component support a couple of additional @Input, list of them you can check below:
 
-## Running end-to-end tests
+| Name             | Type                                   | Default value | Description                                                                                                                                                  |
+|------------------|----------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| control          | AbstractControl or FormControl         |               | Control from which validator will extract validations and show error messages.                                                                               |
+| customName       | string                                 |     | By default  name of control is extracted from parent name (ex: if we have FormGroup which have FormControl lastName then name of validation will Last Name). |
+| customValidation | CustomValidation or CustomValidation[] |               | In case when we need to overwrite default validation messages or add something custom which don't exists in service.                                         |             |
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# GitHub
+Please feel free to declare issues or contribute: https://github.com/angular-magic/ngx-validator

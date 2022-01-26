@@ -1,7 +1,42 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "1d6d4345-9068-4986-a96f-322ad45824f3"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-validator": {
+      "projectType": "library",
+      "root": "projects/ngx-validator",
+      "sourceRoot": "projects/ngx-validator/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-validator/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-validator/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-validator/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-validator/src/test.ts",
+            "tsConfig": "projects/ngx-validator/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-validator/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-validator"
 }
