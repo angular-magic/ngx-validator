@@ -2,8 +2,11 @@
   "name": "@angular-magic/ngx-validator",
   "description": "The dynamic validator library for Angular",
   "author": "Dan Cornilov",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/angular-magic/ngx-validator",
   "repository": {
     "type": "git",
@@ -18,5 +21,12 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "keywords": [
+    "angular",
+    "validator",
+    "global validator",
+    "reactive validator",
+    "dynamic validator"
+  ]
 }
