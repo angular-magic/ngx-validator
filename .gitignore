@@ -2,6 +2,7 @@
 
 # Compiled output
 /dist
+/projects/ngx-validator/dist
 /tmp
 /out-tsc
 /bazel-out
