@@ -1,4 +1,10 @@
 # ngx-validator
+<p align="center">
+  <img alt="Ngx-Markdown Logo" src="https://ngx-validator.angularmagic.com/assets/cover.jpg">
+</p>
+
+**Demo: https://ngx-validator.angularmagic.com**
+
 This module contains validator component which automatically show message depending by control's validations.
 
 [![NPM](https://nodei.co/npm/@angular-magic/ngx-validator.png)](https://nodei.co/npm/@angular-magic/ngx-validator/)
