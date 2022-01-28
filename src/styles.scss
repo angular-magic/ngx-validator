@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  background: #f9f9f9;
+}
+
+.tab-content {
+  margin-top: 25px;
+}
+
+pre {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/_mixins';
+@import '~bootstrap/scss/utilities/api';

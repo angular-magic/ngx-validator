@@ -1,0 +1,62 @@
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Overview">
+    <div class="tab-content">
+      Bellow you can check next functionality:
+      <ul>
+        <li>Change default message of validations</li>
+        <li>Use custom name from your control</li>
+        <li>Add custom validation</li>
+      </ul>
+      <form [formGroup]="form">
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput type="text">
+
+            <mat-error>
+              <ngx-validator [control]="form?.controls?.['name']"
+                             [customValidation]="{name: 'required', text: 'Name is required your son of a b***h!'}"></ngx-validator>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput type="password">
+
+            <mat-error>
+              <ngx-validator [control]="form?.controls?.['password']"></ngx-validator>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm password</mat-label>
+            <input formControlName="conf_pass" matInput type="password">
+
+            <mat-error>
+              <ngx-validator [control]="form?.controls?.['conf_pass']"
+                             [customValidation]="{name:'passwordNotEquals', text: 'Passwords are not the same!'}"
+                             customName="Confirm password"></ngx-validator>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+      <button (click)="submit()" mat-stroked-button>Submit</button>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="HTML">
+    <pre>
+      <code> {{customFormHTML }}</code>
+    </pre>
+  </mat-tab>
+
+  <mat-tab label="TS">
+    <pre>
+      <code> {{customFormValidations }}</code>
+    </pre>
+  </mat-tab>
+</mat-tab-group>
