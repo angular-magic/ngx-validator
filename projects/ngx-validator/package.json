@@ -1,11 +1,17 @@
 {
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "name": "@angular-magic/ngx-validator",
   "description": "The dynamic validator library for Angular",
   "author": "Dan Cornilov",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/public-api.ts"
+    }
   },
   "homepage": "https://github.com/angular-magic/ngx-validator",
   "repository": {
