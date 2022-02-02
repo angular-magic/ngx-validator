@@ -7,8 +7,7 @@
     "build": "ng build",
     "build:package": "ng-packagr -p ./projects/ngx-validator/package.json",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "deploy": "ng build --prod && rsync -a ~/Sites/npm/ngx-validator/dist/ngx-validator root@165.22.72.2:/var/www/angular-magic"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
