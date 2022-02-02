@@ -1,6 +1,6 @@
 # ngx-validator
 <p align="center">
-  <img alt="Ngx-Markdown Logo" src="https://ngx-validator.angularmagic.com/assets/cover.jpg">
+  <img alt="Ngx-Markdown Logo" src="https://ngx-validator.angularmagic.com/assets/cover.png">
 </p>
 
 **Demo: https://ngx-validator.angularmagic.com**
