@@ -44,7 +44,9 @@ export class NgxValidatorService {
   backendValidation$: Observable<Record<string, string[]>> = this.backendValidation.asObservable();
 
   setValidationMessages(messages: NgxValidatorMessages): void {
-    this.messages.next({ messages: { ...VALIDATION_MESSAGES, ...messages } });
+    const currentMessages = this.messages.value.messages;
+
+    this.messages.next({ messages: { ...currentMessages, ...messages } });
   }
 
   setBackendErrorsOnForm(form: FormGroup, backendErrors: Record<string, string[]>): void {
