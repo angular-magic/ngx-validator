@@ -6,7 +6,7 @@ import { CustomValidation } from './models/custom-validation.model';
   selector: 'ngx-validator',
   template: `
     <ng-container *ngIf="control?.invalid && control?.touched">
-      <p *ngIf="control?.errors">
+      <p *ngIf="control?.errors" class="ngx-validator">
         <span
           [innerHTML]="(control?.errors | getErrorMessage: customValidation | async) | interpolation: (control?.errors | getInterpolationData: customName : control)"></span>
       </p>

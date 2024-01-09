@@ -23,7 +23,7 @@ export class GetInterpolationDataPipe implements PipeTransform {
       case 'maxlength':
         return { field: name, length: errors['maxlength']['requiredLength'] };
       default:
-        return { field: name };
+        return { field: name, value: errors[properties[0]]?.value };
     }
   }
 
