@@ -42,6 +42,7 @@ export class NgxValidatorService {
   messages$: Observable<MessagesResponse> = this.messages.asObservable();
   backendValidation: BehaviorSubject<Record<string, string[]>> = new BehaviorSubject({});
   backendValidation$: Observable<Record<string, string[]>> = this.backendValidation.asObservable();
+  validationOnTouch: boolean = true;
 
   setValidationMessages(messages: NgxValidatorMessages): void {
     const currentMessages = this.messages.value.messages;

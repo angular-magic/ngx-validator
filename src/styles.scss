@@ -14,6 +14,6 @@ pre {
 }
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap-grid';
-@import '~bootstrap/scss/_mixins';
-@import '~bootstrap/scss/utilities/api';
+@import 'node_modules/bootstrap/scss/bootstrap-grid';
+@import 'node_modules/bootstrap/scss/_mixins';
+@import 'node_modules/bootstrap/scss/utilities/api';

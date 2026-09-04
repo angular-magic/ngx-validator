@@ -1,9 +1,8 @@
 {
-  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "name": "@angular-magic/ngx-validator",
   "description": "The dynamic validator library for Angular",
   "author": "Dan Cornilov",
-  "version": "1.0.7",
+  "version": "2.0.1",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -22,8 +21,8 @@
     "url": "https://github.com/angular-magic/ngx-validator/issues"
   },
   "peerDependencies": {
-    "@angular/core": ">= 2.0.0",
-    "@angular/common": ">= 2.0.0"
+    "@angular/core": ">= 16.0.0",
+    "@angular/common": ">= 16.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
