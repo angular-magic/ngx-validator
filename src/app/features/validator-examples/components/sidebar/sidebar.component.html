@@ -13,11 +13,11 @@
 
   <div class="sidebar__items">
     <ul>
-      <ng-container *ngFor="let item of items">
+      @for (item of items; track item.value) {
         <li>
-          <button [routerLink]="item.value" mat-button>{{item.label}}</button>
+          <button [routerLink]="item.value" mat-button>{{ item.label }}</button>
         </li>
-      </ng-container>
+      }
     </ul>
   </div>
 </div>

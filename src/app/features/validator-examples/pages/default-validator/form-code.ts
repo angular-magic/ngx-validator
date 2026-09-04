@@ -14,7 +14,7 @@ export const defaultFormHTML = `
             <input formControlName="name" matInput type="text">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['name']"></ngx-validator>
+              <ngx-validator [control]="form.controls['name']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -25,7 +25,7 @@ export const defaultFormHTML = `
             <input formControlName="email" matInput type="email">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['email']"></ngx-validator>
+              <ngx-validator [control]="form.controls['email']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -36,7 +36,7 @@ export const defaultFormHTML = `
             <input formControlName="age" matInput type="number">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['age']"></ngx-validator>
+              <ngx-validator [control]="form.controls['age']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -58,11 +58,22 @@ export const defaultFormHTML = `
 
 export const defaultFormValidations = `
     import { Component } from '@angular/core';
-    import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+    import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+    import { MatButtonModule } from '@angular/material/button';
+    import { MatFormFieldModule } from '@angular/material/form-field';
+    import { MatInputModule } from '@angular/material/input';
+    import { NgxValidatorComponent } from '@angular-magic/ngx-validator';
     import { FormUtils } from '../../../../form.utils';
 
     @Component({
       selector: 'app-default-validator',
+      imports: [
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgxValidatorComponent,
+        ReactiveFormsModule,
+      ],
       templateUrl: './default-validator.component.html',
       styleUrls: ['./default-validator.component.scss'],
     })

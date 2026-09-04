@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgxValidatorComponent } from '@angular-magic/ngx-validator';
 import { NgxValidatorService } from '@angular-magic/ngx-validator';
 import { FormUtils } from '../../../../form.utils';
 import { backendFormHTML, backendFormValidations } from './form-code';
@@ -7,6 +12,14 @@ import { first, of } from 'rxjs';
 
 @Component({
   selector: 'app-backend-validator',
+  imports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTabsModule,
+    NgxValidatorComponent,
+    ReactiveFormsModule,
+  ],
   templateUrl: './backend-validator.component.html',
   styleUrls: ['./backend-validator.component.scss'],
 })

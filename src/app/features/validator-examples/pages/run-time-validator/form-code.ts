@@ -11,7 +11,7 @@ export const runTimeFormHTML = `
             <input formControlName="name" matInput type="text">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['name']"></ngx-validator>
+              <ngx-validator [control]="form.controls['name']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -22,7 +22,7 @@ export const runTimeFormHTML = `
             <input formControlName="email" matInput type="email">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['email']"></ngx-validator>
+              <ngx-validator [control]="form.controls['email']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -33,7 +33,7 @@ export const runTimeFormHTML = `
             <input formControlName="age" matInput type="number">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['age']"></ngx-validator>
+              <ngx-validator [control]="form.controls['age']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -48,12 +48,22 @@ export const runTimeFormHTML = `
 
 export const runTimeFormValidations = `
     import { Component } from '@angular/core';
-    import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+    import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+    import { MatButtonModule } from '@angular/material/button';
+    import { MatFormFieldModule } from '@angular/material/form-field';
+    import { MatInputModule } from '@angular/material/input';
     import { FormUtils } from '../../../../form.utils';
-    import { NgxValidatorService } from '@angular-magic/ngx-validator';
+    import { NgxValidatorComponent, NgxValidatorService } from '@angular-magic/ngx-validator';
 
     @Component({
       selector: 'app-run-time-validator',
+      imports: [
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgxValidatorComponent,
+        ReactiveFormsModule,
+      ],
       templateUrl: './run-time-validator.component.html',
       styleUrls: ['./run-time-validator.component.scss'],
     })

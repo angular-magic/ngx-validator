@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { CustomValidatorComponent } from './custom-validator.component';
 
@@ -8,7 +9,8 @@ describe('CustomValidatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomValidatorComponent ]
+      imports: [CustomValidatorComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
   });

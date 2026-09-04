@@ -13,7 +13,7 @@ export const customFormHTML = `
             <input formControlName="name" matInput type="text">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['name']"
+              <ngx-validator [control]="form.controls['name']"
                              [customValidation]="{name: 'required', text: 'Name is required your son of a b***h!'}"></ngx-validator>
             </mat-error>
           </mat-form-field>
@@ -25,7 +25,7 @@ export const customFormHTML = `
             <input formControlName="password" matInput type="password">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['password']"></ngx-validator>
+              <ngx-validator [control]="form.controls['password']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -36,7 +36,7 @@ export const customFormHTML = `
             <input formControlName="conf_pass" matInput type="password">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['conf_pass']"
+              <ngx-validator [control]="form.controls['conf_pass']"
                              [customValidation]="{name:'passwordNotEquals', text: 'Passwords are not the same!'}"
                              customName="Confirm password"></ngx-validator>
             </mat-error>
@@ -49,12 +49,23 @@ export const customFormHTML = `
 
 export const customFormValidations = `
     import { Component } from '@angular/core';
-    import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+    import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+    import { MatButtonModule } from '@angular/material/button';
+    import { MatFormFieldModule } from '@angular/material/form-field';
+    import { MatInputModule } from '@angular/material/input';
+    import { NgxValidatorComponent } from '@angular-magic/ngx-validator';
     import { FormUtils } from '../../../../form.utils';
     import { controlsEqual } from '../../../../validators/control-equal.validator';
 
     @Component({
       selector: 'app-custom-validator',
+      imports: [
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgxValidatorComponent,
+        ReactiveFormsModule,
+      ],
       templateUrl: './custom-validator.component.html',
       styleUrls: ['./custom-validator.component.scss'],
     })

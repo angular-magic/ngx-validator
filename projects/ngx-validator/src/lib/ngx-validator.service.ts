@@ -1,6 +1,7 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
-import { Injectable } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { FormGroup } from '@angular/forms';
 
 const VALIDATION_MESSAGES = {
@@ -35,19 +36,26 @@ export interface MessagesResponse {
   providedIn: 'root',
 })
 export class NgxValidatorService {
-  messages: BehaviorSubject<MessagesResponse> = new BehaviorSubject<MessagesResponse>({
-    messages: VALIDATION_MESSAGES,
-  });
+  /** Active message templates, keyed by validation error name. */
+  readonly messages = signal<NgxValidatorMessages>(VALIDATION_MESSAGES);
 
-  messages$: Observable<MessagesResponse> = this.messages.asObservable();
-  backendValidation: BehaviorSubject<Record<string, string[]>> = new BehaviorSubject({});
-  backendValidation$: Observable<Record<string, string[]>> = this.backendValidation.asObservable();
-  validationOnTouch: boolean = true;
+  /** Raw errors most recently applied through {@link setBackendErrorsOnForm}. */
+  readonly backendValidation = signal<Record<string, string[]>>({});
+
+  /**
+   * When true (the default) messages only render once a control is both invalid
+   * and touched. Set to false to render them as soon as the control is invalid.
+   */
+  readonly validationOnTouch = signal(true);
+
+  readonly messages$: Observable<MessagesResponse> = toObservable(
+    computed<MessagesResponse>(() => ({ messages: this.messages() })),
+  );
+
+  readonly backendValidation$: Observable<Record<string, string[]>> = toObservable(this.backendValidation);
 
   setValidationMessages(messages: NgxValidatorMessages): void {
-    const currentMessages = this.messages.value.messages;
-
-    this.messages.next({ messages: { ...currentMessages, ...messages } });
+    this.messages.update(current => ({ ...current, ...messages }));
   }
 
   setBackendErrorsOnForm(form: FormGroup, backendErrors: Record<string, string[]>): void {
@@ -64,6 +72,7 @@ export class NgxValidatorService {
       }
     });
 
+    this.backendValidation.set(backendErrors);
     this.setValidationMessages(generatedErrors);
   }
 }
