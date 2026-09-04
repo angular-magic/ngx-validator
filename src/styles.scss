@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+// Bootstrap grid + utilities API. @use must precede other rules.
+// bootstrap-grid already pulls in functions, variables, maps, mixins and utilities/api.
+@use 'bootstrap/scss/bootstrap-grid';
+
 body {
   margin: 0;
   background: #f9f9f9;
@@ -12,8 +16,3 @@ pre {
   background: #ddd;
   border-radius: 4px;
 }
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap-grid';
-@import '~bootstrap/scss/_mixins';
-@import '~bootstrap/scss/utilities/api';

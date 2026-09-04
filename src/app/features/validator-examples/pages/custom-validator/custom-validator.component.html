@@ -14,7 +14,7 @@
             <input formControlName="name" matInput type="text">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['name']"
+              <ngx-validator [control]="form.controls['name']"
                              [customValidation]="{name: 'required', text: 'Name is required your son of a b***h!'}"></ngx-validator>
             </mat-error>
           </mat-form-field>
@@ -26,7 +26,7 @@
             <input formControlName="password" matInput type="password">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['password']"></ngx-validator>
+              <ngx-validator [control]="form.controls['password']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -37,7 +37,7 @@
             <input formControlName="conf_pass" matInput type="password">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['conf_pass']"
+              <ngx-validator [control]="form.controls['conf_pass']"
                              [customValidation]="{name:'passwordNotEquals', text: 'Passwords are not the same!'}"
                              customName="Confirm password"></ngx-validator>
             </mat-error>

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { DefaultValidatorComponent } from './default-validator.component';
 
@@ -8,7 +9,8 @@ describe('DefaultValidatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DefaultValidatorComponent ]
+      imports: [DefaultValidatorComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
   });

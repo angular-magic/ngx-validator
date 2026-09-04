@@ -12,7 +12,7 @@ export const backendFormHTML = `
             <input formControlName="name" matInput type="text">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['name']"></ngx-validator>
+              <ngx-validator [control]="form.controls['name']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -23,7 +23,7 @@ export const backendFormHTML = `
             <input formControlName="email" matInput type="email">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['email']"></ngx-validator>
+              <ngx-validator [control]="form.controls['email']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -34,7 +34,7 @@ export const backendFormHTML = `
             <input formControlName="age" matInput type="number">
 
             <mat-error>
-              <ngx-validator [control]="form?.controls?.['age']"></ngx-validator>
+              <ngx-validator [control]="form.controls['age']"></ngx-validator>
             </mat-error>
           </mat-form-field>
         </div>
@@ -45,13 +45,23 @@ export const backendFormHTML = `
 
 export const backendFormValidations = `
     import { Component } from '@angular/core';
-    import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-    import { NgxValidatorService } from '@angular-magic/ngx-validator';
+    import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+    import { MatButtonModule } from '@angular/material/button';
+    import { MatFormFieldModule } from '@angular/material/form-field';
+    import { MatInputModule } from '@angular/material/input';
+    import { NgxValidatorComponent, NgxValidatorService } from '@angular-magic/ngx-validator';
     import { FormUtils } from '../../../../form.utils';
     import { first, of } from 'rxjs';
 
     @Component({
       selector: 'app-backend-validator',
+      imports: [
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgxValidatorComponent,
+        ReactiveFormsModule,
+      ],
       templateUrl: './backend-validator.component.html',
       styleUrls: ['./backend-validator.component.scss'],
     })
